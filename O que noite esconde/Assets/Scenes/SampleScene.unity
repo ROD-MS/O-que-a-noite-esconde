@@ -964,6 +964,7 @@ MonoBehaviour:
   speed: 5
   camera: {fileID: 330585545}
   mouseSensibility: 20
+  canControl: 1
 --- !u!136 &1366548519
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1140,7 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395d38cf4c4db8d4d8a60ddce7bd405d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueControl
-  language: 2
+  language: 0
   dialogueWindow: {fileID: 1039257873}
   profileSprite: {fileID: 0}
   actorNameText: {fileID: 949690912}
@@ -1349,6 +1350,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816076189}
   m_CullTransparentMesh: 1
+--- !u!1001 &82636318968148148
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5700002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167375406072784938, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047927961300803464, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+      propertyPath: m_Name
+      value: Robo NPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
 --- !u!1001 &5877038326342049740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1496,6 +1554,7 @@ SceneRoots:
   - {fileID: 1366548517}
   - {fileID: 5877038326342049740}
   - {fileID: 8059858098525832137}
+  - {fileID: 82636318968148148}
   - {fileID: 1454795242}
   - {fileID: 954801117}
   - {fileID: 166828653}

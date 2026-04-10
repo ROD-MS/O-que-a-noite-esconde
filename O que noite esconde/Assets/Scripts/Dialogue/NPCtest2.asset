@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9787449bc7f4e4198bdfd49559dc09, type: 3}
+  m_Name: NPCtest2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSettings
+  actor: {fileID: 8047927961300803464, guid: 42a9625a6672db84e8c46e5d9b453867, type: 3}
+  speakerSprite: {fileID: 0}
+  nameActor: 
+  sentence: 
+  dialogues:
+  - actorName: Robo inutil
+    profile: {fileID: 0}
+    sentence:
+      portuguese: eu fui criado apenas pra testes...
+      english: 
+      spanish: 
+  - actorName: Robo inutil
+    profile: {fileID: 0}
+    sentence:
+      portuguese: no final do dia, meu criador nem se importa comigo
+      english: 
+      spanish: 

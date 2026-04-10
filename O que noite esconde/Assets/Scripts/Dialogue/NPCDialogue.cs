@@ -33,6 +33,7 @@ public class NPCDialogue : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && canTalk && !isTalking)
         {
+            instance = this;
             DialogueControl.instance.Speech(sentences.ToArray(), names.ToArray());
             isTalking = true;
         }

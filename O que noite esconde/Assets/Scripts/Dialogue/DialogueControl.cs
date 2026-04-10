@@ -94,7 +94,6 @@ public class DialogueControl : MonoBehaviour
             StartCoroutine(TypeSentence());
             isShowing = true;
 
-            Debug.Log(actorNames[index]);
 
         }
         else
