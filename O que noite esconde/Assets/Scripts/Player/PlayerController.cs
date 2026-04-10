@@ -15,40 +15,53 @@ public class PlayerController : MonoBehaviour
 
     private float xRotation;
 
+    public bool canControl = true;
+
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        canControl = true;
     }
 
 
     void Update()
     {
-        float deltaSpeed = speed * Time.deltaTime;
+        if (canControl)
+        {
+            float deltaSpeed = speed * Time.deltaTime;
 
-        float xMove = Input.GetAxis("Horizontal");
-        float zMove = Input.GetAxis("Vertical");
+            float xMove = Input.GetAxis("Horizontal");
+            float zMove = Input.GetAxis("Vertical");
 
-        Vector3 movePlayer = new Vector3(xMove * deltaSpeed, 0, zMove * deltaSpeed);
+            Vector3 movePlayer = new Vector3(xMove * deltaSpeed, 0, zMove * deltaSpeed);
 
-        transform.Translate(movePlayer);
+            transform.Translate(movePlayer);
+        }
 
-        lockUnlockMouse();
+            lockUnlockMouse();
     }
 
     void LateUpdate()
     {
+        if (canControl)
+        {
+            float mouseX = Input.mousePositionDelta.x * Time.deltaTime * mouseSensibility;
+            float mouseY = Input.mousePositionDelta.y * Time.deltaTime * mouseSensibility;
 
-        float mouseX = Input.mousePositionDelta.x * Time.deltaTime * mouseSensibility;
-        float mouseY = Input.mousePositionDelta.y * Time.deltaTime * mouseSensibility;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+            camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        transform.Rotate(Vector3.up * mouseX);
-
+            transform.Rotate(Vector3.up * mouseX);
+        }
     }
 
     void lockUnlockMouse()

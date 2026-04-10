@@ -10,6 +10,8 @@ public class Raycast : MonoBehaviour
     public Transform centerPoint;
     public PlayerController playerScript;
 
+    private NPCDialogue npc;
+
 
     void Start()
     {
@@ -26,6 +28,9 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, raycastDistance))
         {
+
+
+
             if (hit.collider.tag == "Collectibles")
             {
                 Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.yellow);
@@ -39,6 +44,13 @@ public class Raycast : MonoBehaviour
                 }
 
             }
+            else if (!hit.collider.GetComponent<SphereCollider>() && hit.collider.tag == "NPC")
+            {
+                Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.yellow);
+
+                npc = hit.collider.GetComponent<NPCDialogue>();
+                npc.canTalk = true;
+            }
             else
             {
                 Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.blue);
@@ -47,6 +59,11 @@ public class Raycast : MonoBehaviour
         }
         else
         {
+            if (npc)
+            {
+                npc.canTalk = false;
+            }
+
             Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.red);
         }
 

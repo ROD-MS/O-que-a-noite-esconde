@@ -11,7 +11,7 @@ public class NPCDialogue : MonoBehaviour
 
     public bool isTalking = false;
 
-    private bool playerInArea = false;
+    public bool canTalk = false;
 
     private List<string> sentences = new List<string>();
     private List<string> names = new List<string>();
@@ -31,12 +31,12 @@ public class NPCDialogue : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && playerInArea && !isTalking)
+        if (Input.GetMouseButtonDown(0) && canTalk && !isTalking)
         {
             DialogueControl.instance.Speech(sentences.ToArray(), names.ToArray());
             isTalking = true;
         }
-        else if (Input.GetMouseButtonDown(0) && playerInArea && isTalking)
+        else if (Input.GetMouseButtonDown(0) && canTalk && isTalking)
         {
             DialogueControl.instance.NextSentence();
         }
@@ -64,22 +64,5 @@ public class NPCDialogue : MonoBehaviour
             names.Add(dialogue.dialogues[i].actorName);
         }
     }
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInArea = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInArea = false;
-            isTalking = false;
-            DialogueControl.instance.dialogueWindow.SetActive(false);
-        }
-    }
+ 
 }

@@ -81,6 +81,7 @@ public class DialogueControl : MonoBehaviour
     // Call speech
     public void Speech(string[] txt, string[] names)
     {
+        PlayerController.instance.canControl = false;
         speechText.text = null;
         actorNameText.text = null;
 
@@ -110,6 +111,7 @@ public class DialogueControl : MonoBehaviour
         dialogueWindow.SetActive(false);
         isShowing = false;
         NPCDialogue.instance.isTalking = false;
+        PlayerController.instance.canControl = true;
     }
 
 
