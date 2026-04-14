@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectibles
   - NPC
+  - Floor
   layers:
   - Default
   - TransparentFX

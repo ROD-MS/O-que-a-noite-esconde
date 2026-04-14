@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     public List<GameObject> inventory;
 
     public float speed = 5f;
+    public float walkSpeed = 5;
+    public float runSpeed = 10f;
+
+    public float jumpForce = 10f;
+    public bool inFloor = false;
+
     public Camera camera;
 
     public float mouseSensibility = 20f;
@@ -19,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController instance;
 
+    private Rigidbody body;
+
     private void Awake()
     {
         instance = this;
@@ -28,6 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         canControl = true;
+
+        body = GetComponent<Rigidbody>();
     }
 
 
@@ -35,6 +45,24 @@ public class PlayerController : MonoBehaviour
     {
         if (canControl)
         {
+            if (Input.GetButton("Sprint"))
+            {
+                speed = runSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
+
+            if (Input.GetButtonDown("Jump") && inFloor) 
+            {
+                float jump = jumpForce;
+                body.AddForce(Vector3.up * jump, ForceMode.Impulse);
+                inFloor = false;
+            }
+
+
+
             float deltaSpeed = speed * Time.deltaTime;
 
             float xMove = Input.GetAxis("Horizontal");
@@ -61,6 +89,14 @@ public class PlayerController : MonoBehaviour
             camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
             transform.Rotate(Vector3.up * mouseX);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            inFloor = true;
         }
     }
 
